@@ -161,7 +161,28 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 const mkdir = ()=>{
-   var path2 =  document.getElementById('folder-location-txt').value
+    var currentdate  = new Date();
+    currentdate  = currentdate.getDate()
+     + (currentdate.getMonth()+1)
+     + currentdate.getFullYear()  
+     + currentdate.getHours() 
+     + currentdate.getMinutes() 
+     + currentdate.getSeconds();
+    let text = currentdate.toString();
+    text = text.replace(/^\.*\/|\/?[^\/]+\.[a-z]+|\/$/g, '');
+    //console.log(currentdate)
+
+    fs.mkdir(path.join(folderPathTxt.value, text), (err) => {
+        if (err) {
+            return console.error(err);
+        }
+        console.log('Directory created successfully! Folder Name: '+ text + ' at '+ folderPathTxt.value);
+    });
+
+
+
+
+  /*  var path2 =  document.getElementById('folder-location-txt').value
     const __dirname =  path.resolve();
     path2 = path2.replace(/^\.*\/|\/?[^\/]+\.[a-z]+|\/$/g, ''); // Remove leading directory markers, and remove ending /file-name.extension
    fs.mkdir(path.resolve(__dirname, path2), { recursive: true }, e => {
@@ -170,7 +191,7 @@ const mkdir = ()=>{
        } else {
            console.log('Success');
        }
-    });
+    }); */
 };
 
 const mkfile = ()=>{
