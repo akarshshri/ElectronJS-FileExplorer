@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <p> Current Folder</p>
+            <input type="text" id='folder-location-txt' value="C:\">
+            <input type="button" value ="Go" id= read-folder-btn>
+        </div>
+        <div class="row">
+            <button id='back-btn'>Back</button>
+            <button id='up-btn'>Up</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="folder collection" id='folder-section'>
+
+        </div>
+        <div id='loading-icon' hidden='hidden'>
+            <p class='flow-text center'>loading...</p>
+        </div>
+        <div class="empty-folder-icon" hidden='hidden' id="empty-folder-icon">
+            <p class="flow-text center">Empty Folder</p>
+        </div>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating red" onclick='mkdir()'>mkd</a>
+        <a class="btn-floating red">mkf</a>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+    <script type="text/javascript" src="./script/materialize.min.js"></script>
+    <script src="./script/filemanager.js"></script>
+
+</body>
+</html> 
