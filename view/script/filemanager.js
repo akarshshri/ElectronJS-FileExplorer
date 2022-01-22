@@ -59,7 +59,7 @@ ipcRenderer.on('folder-details',(event,reply)=>{
         const icon = document.createElement('span')
         const dirName = document.createElement('span')
         dirName.innerText = '' + folder
-        icon.innerText = '📁'
+        icon.innerText = '📁 '
         element.appendChild(icon)
         element.appendChild(dirName)
         element.setAttribute('href','#')
@@ -88,7 +88,7 @@ ipcRenderer.on('folder-details',(event,reply)=>{
         const icon = document.createElement('span')
         const fileName = document.createElement('span')
         fileName.innerText = ' ' + file
-        icon.innerText = '&#xf15b;'
+        icon.innerText = '📃 ;'
         element.appendChild(icon)
         element.appendChild(fileName)
         element.setAttribute('href','#')
@@ -179,25 +179,23 @@ const mkdir = ()=>{
         console.log('Directory created successfully! Folder Name: '+ text + ' at '+ folderPathTxt.value);
     });
 
-
-
-
-  /*  var path2 =  document.getElementById('folder-location-txt').value
-    const __dirname =  path.resolve();
-    path2 = path2.replace(/^\.*\/|\/?[^\/]+\.[a-z]+|\/$/g, ''); // Remove leading directory markers, and remove ending /file-name.extension
-   fs.mkdir(path.resolve(__dirname, path2), { recursive: true }, e => {
-       if (e) {
-           console.error(e);
-       } else {
-           console.log('Success');
-       }
-    }); */
 };
 
 const mkfile = ()=>{
-   var path2 =  document.getElementById('folder-location-txt').value
-    fs.open(path2, 'w', function (err, file) {
+
+      var currentdate  = new Date();
+    currentdate  = currentdate.getDate()
+     + (currentdate.getMonth()+1)
+     + currentdate.getFullYear()  
+     + currentdate.getHours() 
+     + currentdate.getMinutes() 
+     + currentdate.getSeconds();
+    let text = currentdate.toString();
+    text = text.replace(/^\.*\/|\/?[^\/]+\.[a-z]+|\/$/g, '');
+    
+    fs.open(folderPathTxt.value, 'w', function (err, file) {
         if (err) throw err;
-        console.log('Saved!');
-      });
+        console.log('New file Created!');
+    });
+
 }

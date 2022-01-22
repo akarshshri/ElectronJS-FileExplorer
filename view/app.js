@@ -10,7 +10,7 @@ function createWindow(){
    let mainWindow = new BrowserWindow({
         width: 1200,
         height: 700,
-        title: 'Add Shopping List Item',
+        title: 'File Explorer',
         frame:true,
         webPreferences: {
             nodeIntegration: true,
